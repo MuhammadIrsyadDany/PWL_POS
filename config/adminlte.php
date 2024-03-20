@@ -334,6 +334,12 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
+            // Tugas Praktikum nomer 2 jobsheet 5
+            'text' => 'Manage_Kategori',
+            'url' => 'kategori',
+            'icon' => 'fas fa-fw fa-bars',
+        ],
+        [
             'text' => 'multilevel',
             'icon' => 'fas fa-fw fa-share',
             'submenu' => [
