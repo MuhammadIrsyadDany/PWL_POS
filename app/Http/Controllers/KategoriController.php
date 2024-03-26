@@ -11,6 +11,11 @@ use Illuminate\View\View;
 
 class KategoriController extends Controller
 {
+    public function index(KategoriDataTable $dataTable)
+    {
+        return $dataTable->render('kategori.index');
+    }
+
     public function create(): View
     {
         return view('kategori.create');
@@ -28,15 +33,15 @@ class KategoriController extends Controller
             'body' => ['required'],
         ]);
 
-        // $validatedData = $request->validateWithBag('posts', [
-        //     'title' => ['required', 'unique:posts', 'max:255'],
-        //     'body' => ['required'],
-        // ]);
+        $validatedData = $request->validateWithBag('posts', [
+            'title' => ['required', 'unique:posts', 'max:255'],
+            'body' => ['required'],
+        ]);
 
-        // $request->validate([
-        //     'title' => 'bail|required|unique:posts|max:255',
-        //     'body' => 'required',
-        // ]);
+        $request->validate([
+            'title' => 'bail|required|unique:posts|max:255',
+            'body' => 'required',
+        ]);
 
         return redirect('/kategori');
     }

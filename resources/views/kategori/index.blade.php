@@ -8,10 +8,13 @@
     <div class="container">
         <div class="card">
             <div class="card-header">Manage Kategori</div>
-            <div class = "card-body">
-                <a href="{{route('/kategori/create')}}" class="btn btn-primary mb-3">Add Kategori</a>
-                {{$dataTable->table()}}
+            <div class="d-flex justify-content-end">
+                <a href="/kategori/create" class="btn btn-primary">
+                    <i class="bi bi-plus-circle-fill mr-1"></i>
+                    <span>Tambah Kategori</span>
+                </a>
             </div>
+            {{$dataTable->table()}}
         </div>
     </div>
 @endsection

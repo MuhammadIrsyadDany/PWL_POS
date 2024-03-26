@@ -32,8 +32,7 @@ Route::get('/user/hapus/{id}', [UserController::class, 'hapus']);
 
 //for kategori
 Route::get('/kategori', [KategoriController::class, 'index']);
-
-Route::get('/kategori/create', [KategoriController::class, 'create']);
+Route::post('/kategori/create', [KategoriController::class, 'create']);
 Route::get('/Kategori', [KategoriController::class, 'store']);
 
 // // Tugas nomer 1 js 5
