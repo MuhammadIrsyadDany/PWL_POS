@@ -48,4 +48,6 @@ Route::get('/Kategori', [KategoriController::class, 'store']);
 // // Tugas nomer 4 js 5
 // Route::get('/kategori/hapus/{id}', [KategoriController::class, 'hapus'])->name('/kategori/hapus');
 
+
+//pos controller
 Route::resource('m_user', POSController::class);
