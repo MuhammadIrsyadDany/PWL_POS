@@ -4,6 +4,7 @@ use App\Http\Controllers\LevelController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\POSController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,18 +36,21 @@ Route::get('/kategori', [KategoriController::class, 'index']);
 Route::post('/kategori/create', [KategoriController::class, 'create']);
 Route::get('/Kategori', [KategoriController::class, 'store']);
 
-// // Tugas nomer 1 js 5
-// Route::get('/kategori/create', [KategoriController::class, 'create'])->name('/kategori/create');
-// Route::post('/kategori', [KategoriController::class, 'store']);
+// Tugas nomer 1 js 5
+Route::get('/kategori/create', [KategoriController::class, 'create'])->name('/kategori/create');
+Route::post('/kategori', [KategoriController::class, 'store']);
 
-// // Tugas nomer 3 js 5
-// Route::get('/kategori', [KategoriController::class, 'index'])->name('/kategori');
-// Route::get('/kategori/edit/{id}', [KategoriController::class, 'edit'])->name('/kategori/edit');
-// Route::put('/kategori/edit_simpan/{id}', [KategoriController::class, 'edit_simpan'])->name('/kategori/edit_simpan');
+// Tugas nomer 3 js 5
+Route::get('/kategori', [KategoriController::class, 'index'])->name('/kategori');
+Route::get('/kategori/edit/{id}', [KategoriController::class, 'edit'])->name('/kategori/edit');
+Route::put('/kategori/edit_simpan/{id}', [KategoriController::class, 'edit_simpan'])->name('/kategori/edit_simpan');
 
-// // Tugas nomer 4 js 5
-// Route::get('/kategori/hapus/{id}', [KategoriController::class, 'hapus'])->name('/kategori/hapus');
+// Tugas nomer 4 js 5
+Route::get('/kategori/hapus/{id}', [KategoriController::class, 'hapus'])->name('/kategori/hapus');
 
 
 //pos controller
 Route::resource('m_user', POSController::class);
+
+//Praktikum 2 JS 7
+Route::get('/', [WelcomeController::class, 'index']);
