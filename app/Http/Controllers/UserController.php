@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\UserModel;
-use App\Models\LevelModel;
+use App\Models\LevelModels;
 use Illuminate\Http\Request;
 use PhpParser\Node\Expr\Cast\Object_;
 use Yajra\DataTables\Facades\DataTables;
@@ -23,7 +23,7 @@ class UserController extends Controller
 
         $activeMenu = 'user';
 
-        $level = LevelModel::all();
+        $level = LevelModels::all();
 
         return view('user.index', ['breadcrumb' => $breadcrumb, 'page' => $page, 'level' => $level, 'activeMenu' => $activeMenu]);
     }
@@ -61,7 +61,7 @@ class UserController extends Controller
             'title' => 'Tambah User Baru'
         ];
 
-        $level = LevelModel::all();
+        $level = LevelModels::all();
         $activeMenu = 'user';
 
         return view('user.create', ['breadcrumb' => $breadcrumb, 'page' => $page, 'level' => $level, 'activeMenu' => $activeMenu]);
@@ -106,7 +106,7 @@ class UserController extends Controller
     {
 
         $user = UserModel::find($id);
-        $level = LevelModel::all();
+        $level = LevelModels::all();
 
         $breadcrumb = (object) [
             'title' => 'Edit User',

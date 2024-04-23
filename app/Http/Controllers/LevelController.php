@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\DataTables\LevelDataTable;
 use App\Http\Requests\CreateLevelRequest;
 use App\Http\Requests\UpdateLevelRequest;
-use App\Models\LevelModel;
+use App\Models\LevelModels;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\DB;
@@ -23,7 +23,7 @@ class LevelController extends Controller
         $page = (object) [
             'title' => 'Daftar level yang terdaftar dalam sistem',
         ];
-        $level = LevelModel::all();
+        $level = LevelModels::all();
         $activeMenu = 'level'; // set menu yang sedang aktif
 
         return view('level.index', ['breadcrumb' => $breadcrumb, 'page' => $page, 'level' => $level, 'activeMenu' => $activeMenu]);
@@ -31,7 +31,7 @@ class LevelController extends Controller
 
     public function list(Request $request)
     {
-        $levels = LevelModel::select('level_id', 'level_kode', 'level_nama');
+        $levels = LevelModels::select('level_id', 'level_kode', 'level_nama');
 
         if ($request->level_id) {
             $levels->where('level_id', $request->level_id);
@@ -61,7 +61,7 @@ class LevelController extends Controller
             'title' => 'Tambah level baru',
         ];
 
-        $level = LevelModel::all();
+        $level = LevelModels::all();
         $activeMenu = 'level';
 
         return view('level.create', ['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu]);
@@ -73,7 +73,7 @@ class LevelController extends Controller
             'level_nama' => 'required|string|max:100',
         ]);
 
-        LevelModel::create([
+        LevelModels::create([
             'level_kode' => $request->level_kode,
             'level_nama' => $request->level_nama,
         ]);
@@ -82,7 +82,7 @@ class LevelController extends Controller
     }
     public function show(string $id)
     {
-        $level = LevelModel::find($id);
+        $level = LevelModels::find($id);
 
         $breadcrumb = (object) [
             'title' => 'Detail Level',
@@ -100,7 +100,7 @@ class LevelController extends Controller
 
     public function edit(string $id)
     {
-        $level = LevelModel::find($id);
+        $level = LevelModels::find($id);
 
         if (!$level) {
             return redirect('/level')->with('error', 'Data level tidak ditemukan');
@@ -127,7 +127,7 @@ class LevelController extends Controller
             'level_nama' => 'required|string|max:100',
         ]);
 
-        LevelModel::find($id)->update([
+        LevelModels::find($id)->update([
             'level_kode' => $request->level_kode,
             'level_nama' => $request->level_nama,
         ]);
@@ -136,12 +136,12 @@ class LevelController extends Controller
     }
     public function destroy(string $id)
     {
-        $check = LevelModel::find($id);
+        $check = LevelModels::find($id);
         if (!$check) {
             return redirect('/level')->with('error', 'Data level tidak ditemukan');
         }
         try {
-            LevelModel::destroy($id);
+            LevelModels::destroy($id);
             return redirect('/level')->with('success', 'Data level berhasil dihapus');
         } catch (\Illuminate\Database\QueryException $e) {
             return redirect('/level')->with('error', 'Data level gagal dihapus karena masih terdapat tabel lain yang terkait dengan data ini');
