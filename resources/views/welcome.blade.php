@@ -156,7 +156,7 @@
 
 {{-- @push('js')
     <script> console.log("Hi, I'm using the Laravel-AdminLTE package!"); </script>
-@endpush --}} --}}
+@endpush --}} 
 
 <!DOCTYPE html>
 <html lang="en">
