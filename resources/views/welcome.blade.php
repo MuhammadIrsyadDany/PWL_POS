@@ -2,13 +2,11 @@
 
 @section('content')
 
-<div class="card">
-    <div class="card-header">
-        <h3 class="card-title">Halo, Apa kabar!!!</h3>
-        <div class="card-tools"></div>
-    </div>
-    <div class="card-body">
-        Selamat datang semua, ini adalah halaman utama dari aplikasi ini.
+<div class="jumbotron jumbotron-fluid bg-dark text-white">
+    <div class="container">
+        <h1 class="display-4">Halo, Apa kabar!!!</h1>
+        <p class="lead">Selamat datang semua, ini adalah halaman utama dari aplikasi ini.</p>
     </div>
 </div>
+
 @endsection
